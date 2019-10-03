@@ -494,6 +494,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#kelima" class="md-nav__link">
+    kelima :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengukur-jarak-numerik" class="md-nav__link">
+    Mengukur Jarak Numerik
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -523,6 +537,18 @@
   <li class="md-nav__item">
     <a href="../Missing Values/" title="Missing Values using KNN" class="md-nav__link">
       Missing Values using KNN
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../decision3/" title="Decision Tree" class="md-nav__link">
+      Decision Tree
     </a>
   </li>
 
@@ -732,6 +758,20 @@
           <li class="md-nav__item">
   <a href="#keempat" class="md-nav__link">
     Keempat :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kelima" class="md-nav__link">
+    kelima :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengukur-jarak-numerik" class="md-nav__link">
+    Mengukur Jarak Numerik
   </a>
   
 </li>
@@ -1344,20 +1384,88 @@ $$
 </table>
 <h5 id="keempat">Keempat :<a class="headerlink" href="#keempat" title="Permanent link">&para;</a></h5>
 <p>Kemudian membuat data penyimpanan / dictionary yang menampung nilai yang ditampilkan. selanjutnya mengambil data dari beberapa kolom pada csv dengan cara diiterasi serta, menghitungnya dengan berbagai metode yang telah disiapkan oleh pandas itu sendiri. kemudian hasil tersebut di disimpan pada penyimpanan yang tadi, dan  memvisualisasikan hasil tersebut dalam bentuk data frame</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data jarak.csv&#39;</span><span class="p">)</span>
+<span class="n">k</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">k</span>
+</pre></div>
+
+
+<p>setelah di run:</p>
+<table>
+<thead>
+<tr>
+<th align="right">30</th>
+<th align="right">64</th>
+<th align="right">1</th>
+<th align="right">1.1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10</td>
+<td align="right">34</td>
+<td align="right">61</td>
+<td align="right">10</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="right">34</td>
+<td align="right">67</td>
+<td align="right">7</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="right">34</td>
+<td align="right">60</td>
+<td align="right">0</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="right">35</td>
+<td align="right">64</td>
+<td align="right">13</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="right">35</td>
+<td align="right">63</td>
+<td align="right">0</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="right">36</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h5 id="kelima">kelima :<a class="headerlink" href="#kelima" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="n">numerical</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">categorical</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">binary</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">ordinal</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">tabulate</span>
 <span class="n">table</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;count()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;mean()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;std()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;min()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;max()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;q1()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;q2()&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;q3&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;skew&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">())</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
-     <span class="p">]</span>
+     <span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Jarak&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Numeric&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Ordinal&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Categorical&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Binary&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v1-v2&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v1-v3&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v2-v3&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v3-v4&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v4-v5&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v5-v6&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="p">]</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">)))</span>
 </pre></div>
@@ -1367,76 +1475,154 @@ $$
 <table>
 <thead>
 <tr>
-<th>method</th>
-<th>30</th>
-<th>64</th>
-<th>1</th>
-<th>1.1</th>
+<th>Data</th>
+<th>Jarak</th>
+<th>Numeric</th>
+<th>Ordinal</th>
+<th>Categorical</th>
+<th>Binary</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>count()</td>
-<td>305</td>
-<td>305</td>
-<td>305</td>
-<td>305</td>
-</tr>
-<tr>
-<td>mean()</td>
-<td>52.5311</td>
-<td>62.8492</td>
-<td>4.03607</td>
-<td>1.26557</td>
-</tr>
-<tr>
-<td>std()</td>
-<td>10.74</td>
-<td>3.25</td>
-<td>7.2</td>
-<td>0.44</td>
-</tr>
-<tr>
-<td>min()</td>
-<td>30</td>
-<td>58</td>
+<td>v1-v2</td>
 <td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>max()</td>
-<td>83</td>
-<td>69</td>
-<td>52</td>
-<td>2</td>
-</tr>
-<tr>
-<td>q1()</td>
-<td>44</td>
-<td>60</td>
 <td>0</td>
-<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr>
-<td>q2()</td>
-<td>52</td>
-<td>63</td>
-<td>1</td>
-<td>1</td>
+<td>v1-v3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr>
-<td>q3</td>
-<td>61</td>
-<td>66</td>
-<td>4</td>
-<td>2</td>
+<td>v2-v3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr>
-<td>skew</td>
-<td>0.16</td>
-<td>0.08</td>
-<td>2.98</td>
-<td>1.07</td>
+<td>v3-v4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v4-v5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v5-v6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mengukur-jarak-numerik">Mengukur Jarak Numerik<a class="headerlink" href="#mengukur-jarak-numerik" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">chordDist</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="n">jnis</span><span class="p">):</span>
+    <span class="n">jmlh</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">normv1</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">normv2</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">jnis</span><span class="p">)):</span>
+        <span class="n">normv1</span><span class="o">=</span><span class="n">normv1</span><span class="o">+</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="n">v1</span><span class="p">][</span><span class="n">jnis</span><span class="p">[</span><span class="n">x</span><span class="p">]])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">normv2</span><span class="o">=</span><span class="n">normv2</span><span class="o">+</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="n">v1</span><span class="p">][</span><span class="n">jnis</span><span class="p">[</span><span class="n">x</span><span class="p">]])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">jmlh</span><span class="o">=</span><span class="n">jmlh</span><span class="o">+</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="n">v1</span><span class="p">][</span><span class="n">jnis</span><span class="p">[</span><span class="n">x</span><span class="p">]])</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="n">v2</span><span class="p">][</span><span class="n">jnis</span><span class="p">[</span><span class="n">x</span><span class="p">]]))</span>
+    <span class="k">return</span> <span class="p">((</span><span class="mi">2</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">jmlh</span><span class="o">/</span><span class="p">(</span><span class="n">normv1</span><span class="o">*</span><span class="n">normv2</span><span class="p">)))</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="n">table</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Jarak&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Numeric&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Ordinal&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Categorical&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Binary&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v1-v2&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chordDist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">numerical</span><span class="p">))]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v1-v3&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chordDist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">numerical</span><span class="p">))]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v2-v3&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chordDist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">numerical</span><span class="p">))]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v3-v4&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chordDist</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">numerical</span><span class="p">))]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v4-v5&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chordDist</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">numerical</span><span class="p">))]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;v5-v6&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;{:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chordDist</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">numerical</span><span class="p">))]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+
+    <span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">)))</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Jarak</th>
+<th>Numeric</th>
+<th>Ordinal</th>
+<th>Categorical</th>
+<th>Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1-v2</td>
+<td>0</td>
+<td>1.41</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v1-v3</td>
+<td>0</td>
+<td>1.41</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v2-v3</td>
+<td>0</td>
+<td>1.41</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v3-v4</td>
+<td>0</td>
+<td>1.41</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v4-v5</td>
+<td>0</td>
+<td>1.41</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>v5-v6</td>
+<td>0</td>
+<td>1.41</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>

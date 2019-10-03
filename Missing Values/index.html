@@ -376,6 +376,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../decision3/" title="Decision Tree" class="md-nav__link">
+      Decision Tree
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -478,6 +490,71 @@
 <p>Di antara berbagai metrik jarak yang tersedia, kami akan fokus pada yang utama, Euclidean dan Manhattan. Euclidean adalah ukuran jarak yang baik untuk digunakan jika variabel input bertipe sama (mis. Semua lebar dan tinggi yang diukur). Jarak Manhattan adalah ukuran yang baik untuk digunakan jika variabel input tidak dalam jenis yang sama (seperti usia, tinggi, dll ...).</p>
 <h3 id="atribut-kategorikal-jarak">Atribut kategorikal jarak<a class="headerlink" href="#atribut-kategorikal-jarak" title="Permanent link">&para;</a></h3>
 <p>tanpa transformasi sebelumnya, jarak yang berlaku terkait dengan frekuensi dan kesamaan. Atribut kategorikal hampir sama dengan nominal karena dengan tipe ini akan dinormalisasikan menjadi numerik atau angka untuk bisa dirukur jaraknya</p>
+<div class="codehilite"><pre><span></span><span class="c1"># importing pandas as pd </span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
+
+<span class="c1"># importing numpy as np </span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> 
+
+<span class="c1"># dictionary of lists </span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;First Score&#39;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">95</span><span class="p">],</span> 
+        <span class="s1">&#39;Second Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> 
+        <span class="s1">&#39;Third Score&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">98</span><span class="p">]}</span> 
+
+<span class="c1"># creating a dataframe from dictionary </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span> 
+
+<span class="c1"># filling missing value using fillna()   </span>
+<span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>setelah dirun:</p>
+<table>
+<thead>
+<tr>
+<th align="right">First Score</th>
+<th align="right">Second Score</th>
+<th align="right">Third Score</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">100.0</td>
+<td align="right">30.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">90.0</td>
+<td align="right">45.0</td>
+<td>40.0</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">0.0</td>
+<td align="right">56.0</td>
+<td>80.0</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">95.0</td>
+<td align="right">0.0</td>
+<td>98.0</td>
+</tr>
+</tbody>
+</table>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$']]}
+});
+</script>
+
+<p><script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p>
                 
                   
                 
@@ -512,6 +589,20 @@
             </div>
           </a>
         
+        
+          <a href="../decision3/" title="Decision Tree" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Decision Tree
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
