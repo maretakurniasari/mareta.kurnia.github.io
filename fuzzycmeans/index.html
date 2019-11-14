@@ -1,0 +1,875 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Repository Untuk Tugas">
+      
+      
+        <link rel="canonical" href="https://maretakurniasari.github.io/mareta.kurnia.github.io/fuzzycmeans/">
+      
+      
+        <meta name="author" content="Mareta Kurni Sari">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>fuzzy c-means - (180411100090) Mareta Kurnia Sari</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../manifest.webmanifest">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#implementasi-fuzzy-c-means-clustering-dengan-python" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://maretakurniasari.github.io/mareta.kurnia.github.io/" title="(180411100090) Mareta Kurnia Sari" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              (180411100090) Mareta Kurnia Sari
+            </span>
+            <span class="md-header-nav__topic">
+              
+                fuzzy c-means
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://maretakurniasari.github.io/mareta.kurnia.github.io/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Mareta Kurnia Sari
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://maretakurniasari.github.io/mareta.kurnia.github.io/" title="(180411100090) Mareta Kurnia Sari" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    (180411100090) Mareta Kurnia Sari
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://maretakurniasari.github.io/mareta.kurnia.github.io/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Mareta Kurnia Sari
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../StatistikaDeskriptif/" title="statistika deskriptif" class="md-nav__link">
+      statistika deskriptif
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../MengukurJarakData/" title="Mengukur Jarak Data" class="md-nav__link">
+      Mengukur Jarak Data
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../MissingValues/" title="Missing Values KNN" class="md-nav__link">
+      Missing Values KNN
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DECISION TREE/" title="Decision Tree" class="md-nav__link">
+      Decision Tree
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas 5 - Clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        fuzzy c-means
+      </label>
+    
+    <a href="./" title="fuzzy c-means" class="md-nav__link md-nav__link--active">
+      fuzzy c-means
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pengertian-fuzzy-clustering" class="md-nav__link">
+    PENGERTIAN FUZZY CLUSTERING
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritma-fuzzy-c-means-clustering" class="md-nav__link">
+    ALGORITMA FUZZY C-MEANS CLUSTERING
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-menghitung-pusat-cluster" class="md-nav__link">
+    CONTOH MENGHITUNG PUSAT CLUSTER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-code-c-means-clustering" class="md-nav__link">
+    CONTOH CODE C-MEANS CLUSTERING
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pengertian-fuzzy-clustering" class="md-nav__link">
+    PENGERTIAN FUZZY CLUSTERING
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritma-fuzzy-c-means-clustering" class="md-nav__link">
+    ALGORITMA FUZZY C-MEANS CLUSTERING
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-menghitung-pusat-cluster" class="md-nav__link">
+    CONTOH MENGHITUNG PUSAT CLUSTER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-code-c-means-clustering" class="md-nav__link">
+    CONTOH CODE C-MEANS CLUSTERING
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="implementasi-fuzzy-c-means-clustering-dengan-python">IMPLEMENTASI FUZZY C-MEANS CLUSTERING DENGAN PYTHON<a class="headerlink" href="#implementasi-fuzzy-c-means-clustering-dengan-python" title="Permanent link">&para;</a></h1>
+<h3 id="pengertian-fuzzy-clustering">PENGERTIAN FUZZY CLUSTERING<a class="headerlink" href="#pengertian-fuzzy-clustering" title="Permanent link">&para;</a></h3>
+<p>Fuzzy clustering adalah proses menentukan derajat keanggotaan, dan kemudian menggunakannya dengan memasukkannya kedalam elemen data kedalam satu kelompok cluster atau lebih.Hal ini akan memberikan informasi kesamaan dari setiap objek. Satu dari sekian banyaknya algoritma fuzzy clustering yang digunakan adalah algoritma fuzzy clustering c means. Vektor dari fuzzy clustering, V={v1, v2, v3,…., vc}, merupakan sebuah fungsi objektif yang didefinisikan dengan derajat keanggotaan dari Xj dan pusat cluster Vj. Algoritma fuzzy clustering c means membagi data yang tersedia dari setiap elemen data berhingga lalu memasukkannya kedalam bagian dari koleksi cluster yang dipengaruhi oleh beberapa kriteria yang diberikan. Berikan satu kumpulan data berhingga. X={x|,…., xn} dan pusat data.</p>
+<p>Proses clustering pada dasarnya merupakan proses pembuatan himpunan yang memiliki anggota elemen-elemen yang akan dicluster. Pada algoritma clustering non–fuzzy, nilai keanggotaan suatu elemen terhadap gugus    atau cluster dinyatakan sebagai 0 atau 1, artinya setiap dokumen hanya bisa menjadi anggota satu cluster (1 sebagai anggota dan 0 bukan anggota). Padahal, jika informasi tentang data ditinjau kembali, satu data dapat menjadi anggota lebih dari satu cluster dengan derajat keanggotaan tertentu. Dengan fuzzy clustering, data dapat menjadi anggota beberapa cluster sekaligus.</p>
+<p>Dengan rumus :</p>
+<p>|(X1 – C1)|=</p>
+<p>|(X2– C1)|=</p>
+<p>Ket : </p>
+<p>X1 = data ke 1</p>
+<p>Xi = data ke i</p>
+<p>C = (C1, C2) / kumpulan cluster</p>
+<p>C(n) = pusat cluster ke n</p>
+<p>U = (U11, U12) / Kumpulan derajat keanggotaan</p>
+<p>U(n) =Pusat derajat keanggotaan iterasi ke N</p>
+<h3 id="algoritma-fuzzy-c-means-clustering">ALGORITMA FUZZY C-MEANS CLUSTERING<a class="headerlink" href="#algoritma-fuzzy-c-means-clustering" title="Permanent link">&para;</a></h3>
+<p>\1.      Menentukan Matriks X yang merupakan data yang akan dicluster, berukuran k x j, dengan k = jumlah data yang akan di-cluster dan j = jumlah variabel/atribut (kriteria).</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>\2.      MenentukanJumlah cluster yang akan dibentuk (n &gt;c ≥ 2).</p>
+<p>-          pembobot (w &gt; 1).</p>
+<p>-          Maksimum iterasi (max n).</p>
+<p>-          Kriteria penghentian/treshold (ɛ = nilai positif yang sangat kecil).</p>
+<p>-          Menentukan fungsi obyektif awal (P0).</p>
+<p>\3.      Membentuk matriks partisi awal U (derajat keanggotaan dalam cluster) dengan ukuran k x i; matriks partisi biasanya dibuat acak, dengan k = jumlah data yang akan di-cluster dan i = jumlah cluster</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>\4.      Hitung pusat cluster (V) untuk setiap cluster, menggunakan rumus</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>Keterangan :</p>
+<p>Vij = pusat cluster pada cluster ke-i dan atribut ke-j.</p>
+<p>μik = data partisi (pada matriks U) pada cluster ke-i dan data ke-k.</p>
+<p>Xkj = data (pada matriks U) pada atribut ke-j dan data ke-k.</p>
+<p>w = pembobot</p>
+<p>\5.      Hitung nilai obyektif (Pn) dengan rumus :</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>Keterangan :</p>
+<p>μik = data partisi (pada matriks U) pada cluster ke-i dan data ke-k.</p>
+<p>dik = fungsi ukuran  jarak untuk  jarak Euclidean pada pusat cluster ke-i dan data ke-k.</p>
+<p>w = pembobot.</p>
+<p>Pn = nilai obyektif pada iterasi ke-n.</p>
+<p>\6.      Perbaiki derajat keanggotaan setiap data pada setiap cluster (perbaiki matriks partisi dengan :</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>dengan :
+<img alt="img" src="data:image/png;base64,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" /></p>
+<p>Keterangan :</p>
+<p>μik = data partisi (pada matriks U) pada pusat cluster ke-i dan data ke-k.</p>
+<p>dik = fungsi ukuran  jarak untuk  jarak Euclidean pada pusat cluster ke-i dan data ke-k.</p>
+<p>djk = fungsi ukuran  jarak untuk  jarak Euclidean pada pusat cluster ke-j dan data ke-k.</p>
+<p>w = pembobot.</p>
+<p>Xkj = data (pada matriks U) pada atribut ke-j dan data ke-k.</p>
+<p>\7.      Menghentikan  iterasi  jika  pusat  cluster  V tidak  berubah.  Alternatif  kriteria penghentian  adalah  jika  perubahan  nilai error kurang dari treshold |Pn - Pn-1| &lt; ɛ. Alternatif adalah ketika perulangan melebihi maksimum iterasi ( n &gt; max n). Jika iterasi belum berhenti, kembali ke langkah 4</p>
+<p>\8.      Jika iterasi berhenti, ditentukan cluster dari tiap-tiap data. Cluster dipilih berdasarkan nilai matriks partisi terbesar.</p>
+<h3 id="contoh-menghitung-pusat-cluster">CONTOH MENGHITUNG PUSAT CLUSTER<a class="headerlink" href="#contoh-menghitung-pusat-cluster" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>f1</th>
+<th>f2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>pada saat iterasi 0:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>c1</th>
+<th>c2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0,363735</td>
+<td>0,632653</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0,558824</td>
+<td>0,441176</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0,571429</td>
+<td>0,428571</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0,180851</td>
+<td>0,819149</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0,283951</td>
+<td>0,716049</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0,880952</td>
+<td>0,119048</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0,619048</td>
+<td>0,380952</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0,583333</td>
+<td>0,416667</td>
+</tr>
+</tbody>
+</table>
+<p>mencari pusat clustering :</p>
+<table>
+<thead>
+<tr>
+<th>c1</th>
+<th>5,192956</th>
+<th>4,624605</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c2</td>
+<td>4,771514</td>
+<td>4,236214</td>
+</tr>
+</tbody>
+</table>
+<p>update derajat keanggotaan :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>c1</th>
+<th>c2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0,0361</td>
+<td>0,03781</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.02806</td>
+<td>0,02905</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0,06736</td>
+<td>0,07356</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0,051975</td>
+<td>0,031055</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0,0634</td>
+<td>0,027</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0,100816</td>
+<td>0,081757</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0,04568</td>
+<td>0,04241</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0,0483</td>
+<td>0,04451</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contoh-code-c-means-clustering">CONTOH CODE C-MEANS CLUSTERING<a class="headerlink" href="#contoh-code-c-means-clustering" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Iris.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filecsv</span><span class="p">:</span>
+    <span class="n">datafile</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">filecsv</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datafile</span><span class="p">:</span>
+        <span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+
+<span class="n">c</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">r</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="n">clu</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;masukan banyak cluster     : &#39;</span><span class="p">))</span>
+<span class="c1">#Masukan data</span>
+<span class="n">data</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">temp_data</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+        <span class="n">temp_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">temp_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="n">temp_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="n">temp_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_data</span><span class="p">)</span>
+
+<span class="n">pangkat</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;masukan pangkat     : &#39;</span><span class="p">))</span>
+
+<span class="c1">#Random Cluster</span>
+<span class="n">clu_random</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clu</span><span class="p">):</span>
+        <span class="n">inp</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+        <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inp</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">clu_random</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+
+<span class="n">stop</span><span class="o">=</span><span class="bp">False</span>
+<span class="n">no</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">stop</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Iterasi Ke-&quot;</span><span class="p">,</span><span class="n">no</span><span class="p">)</span>
+
+    <span class="c1">#klas Clouster</span>
+    <span class="n">cluster</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clu</span><span class="p">):</span>
+        <span class="n">xy</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+            <span class="n">pembilang</span><span class="o">=</span><span class="p">[]</span>
+            <span class="n">penyebut</span><span class="o">=</span><span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">hasil</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">clu_random</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="n">pangkat</span><span class="p">)</span>
+                <span class="n">hasil2</span><span class="o">=</span><span class="n">clu_random</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="n">pangkat</span>
+                <span class="n">pembilang</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hasil</span><span class="p">)</span>
+                <span class="n">penyebut</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hasil2</span><span class="p">)</span>
+            <span class="n">xy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pembilang</span><span class="p">)</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">penyebut</span><span class="p">))</span>
+        <span class="n">cluster</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
+
+    <span class="c1">#mencari Centroid</span>
+    <span class="n">centroid</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clu</span><span class="p">):</span>
+        <span class="n">cent</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">tampung</span><span class="o">=</span><span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+                <span class="n">hasil</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="n">cluster</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+                <span class="n">hasil</span><span class="o">=</span><span class="n">hasil</span><span class="o">**</span><span class="mi">2</span>
+                <span class="n">tampung</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hasil</span><span class="p">)</span>
+            <span class="n">cent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">tampung</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">centroid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cent</span><span class="p">)</span>
+
+    <span class="c1">#Update</span>
+    <span class="n">update</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">niu</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clu</span><span class="p">):</span>
+            <span class="n">pembilang</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">centroid</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">pangkat</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">list_peny</span><span class="o">=</span><span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clu</span><span class="p">):</span>
+                <span class="n">penyebut</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">centroid</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">pangkat</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">list_peny</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">penyebut</span><span class="p">)</span>
+            <span class="n">niu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pembilang</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">list_peny</span><span class="p">))</span>
+        <span class="n">update</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">niu</span><span class="p">)</span>
+
+    <span class="c1">#penampilan data asli</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;asli&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;   &#39;</span><span class="p">,</span><span class="n">clu_random</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1">#penampilan data update</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;   &#39;</span><span class="p">,</span><span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1">#pengecekan Treshold</span>
+    <span class="n">hasil</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">update</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="n">hasil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">clu_random</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">hasil</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">):</span>
+        <span class="n">stop</span><span class="o">=</span><span class="bp">True</span>
+    <span class="n">clu_random</span><span class="o">=</span><span class="n">update</span>
+    <span class="n">no</span><span class="o">=</span><span class="n">no</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">print</span><span class="p">()</span>
+</pre></div>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$']]}
+});
+</script>
+
+<p><script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Tugas 5 - Clustering/" title="Clustering" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Clustering
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Mareta Kurnia Sari
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://maretakurniasari.github.io/mareta.kurnia.github.io/" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/mareta.kzt99" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/mareta.kzt99" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
